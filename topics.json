@@ -1,0 +1,54 @@
+{
+  "Bolt.new 使い方": [
+    {"keyword": "Bolt.new 始め方 2026", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new 無料版でできること", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new プロンプトの書き方", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new ブラウザでアプリ生成", "priority": "medium", "status": "pending"},
+    {"keyword": "Bolt.new フルスタック自動生成", "priority": "medium", "status": "pending"}
+  ],
+  "Bolt.new 料金・プラン": [
+    {"keyword": "Bolt.new 料金プラン 2026", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new Pro 有料プラン内容", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new 無料 有料 違い", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new トークン消費 節約術", "priority": "medium", "status": "pending"}
+  ],
+  "Bolt.new vs Lovable": [
+    {"keyword": "Bolt.new Lovable 比較 2026年最新", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new vs Lovable どっちがいい", "priority": "high", "status": "pending"},
+    {"keyword": "AIアプリビルダー Bolt.new Lovable 違い", "priority": "medium", "status": "pending"},
+    {"keyword": "Bolt.new vs Replit 比較", "priority": "medium", "status": "pending"}
+  ],
+  "Bolt.new 最新ニュース": [
+    {"keyword": "Bolt.new 最新アップデート 2026", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new 新機能まとめ", "priority": "high", "status": "pending"},
+    {"keyword": "StackBlitz Bolt.new 連携 最新情報", "priority": "medium", "status": "pending"},
+    {"keyword": "Bolt.new AI モデル対応状況", "priority": "medium", "status": "pending"}
+  ],
+  "バイブコーディング": [
+    {"keyword": "バイブコーディング とは 入門", "priority": "high", "status": "pending"},
+    {"keyword": "バイブコーディング Bolt.new 実践", "priority": "high", "status": "pending"},
+    {"keyword": "プロンプトだけでアプリ開発", "priority": "medium", "status": "pending"},
+    {"keyword": "ノーコード AIコーディング 違い", "priority": "medium", "status": "pending"},
+    {"keyword": "バイブコーディング 副業 稼ぎ方", "priority": "medium", "status": "pending"}
+  ],
+  "Bolt.new テクニック": [
+    {"keyword": "Bolt.new プロンプト テクニック集", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new Next.js React 対応", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new デプロイ方法 Vercel Netlify", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new Supabase データベース連携", "priority": "medium", "status": "pending"},
+    {"keyword": "Bolt.new API連携 外部サービス", "priority": "medium", "status": "pending"}
+  ],
+  "AIアプリビルダー比較": [
+    {"keyword": "AIアプリビルダー おすすめ 2026", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new Cursor Replit 比較", "priority": "high", "status": "pending"},
+    {"keyword": "AI コード生成ツール ランキング", "priority": "medium", "status": "pending"},
+    {"keyword": "非エンジニア AIアプリ開発 ツール", "priority": "medium", "status": "pending"}
+  ],
+  "Bolt.new 活用事例": [
+    {"keyword": "Bolt.new ビジネス活用 事例集", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new SaaS アプリ 作成例", "priority": "high", "status": "pending"},
+    {"keyword": "Bolt.new ポートフォリオ 作り方", "priority": "medium", "status": "pending"},
+    {"keyword": "Bolt.new LP ランディングページ 作成", "priority": "medium", "status": "pending"},
+    {"keyword": "Bolt.new ECサイト 構築", "priority": "medium", "status": "pending"}
+  ]
+}
