@@ -1,0 +1,40 @@
+{
+  "title": "Bolt.new でフルスタックWebアプリを30分で作る実践ガイド2026",
+  "content": "# Bolt.new でフルスタックWebアプリを30分で作る実践ガイド2026\n\n## この記事でわかること\n- Bolt.new で要件定義からデプロイ完了まで30分で進めるための具体的な手順\n- 失敗しないプロンプトの書き方とプロジェクト構成の決め方\n- 生成後のコード読み解きと最低限の手直し箇所\n\n## 結論\n中級開発者であれば、Bolt.new で「ToDo+認証+DB保存」程度のアプリは30分以内で公開URLまで到達できます。鍵はプロンプトの粒度・段階的な指示・デプロイ前のセルフチェックの3点です。\n\n## 本題\n### ステップ1: 要件を3行で固める（5分）\nBolt.new に渡すプロンプトの質は、頭の中の要件がどれだけ整理されているかで決まります。本格的な仕様書は不要ですが、最低でも次の3行を紙に書いてからエディタを開きます。\n\n- 何を: 「個人用のタスク管理アプリ」\n- 誰が使う: 「自分1人、認証はGoogleログインのみ」\n- 譲れない技術: 「Next.js 14 + Supabase + Tailwind CSS」\n\nこの3行を曖昧にしたままプロンプトを書くと、AIがフレームワーク選定でブレて手戻りが発生します。\n\n### ステップ2: 初期プロンプトを投げる（5分）\nプロンプトは「役割 → 技術スタック → 機能 → 受け入れ条件」の順で書きます。\n\n```\nあなたはNext.js + Supabaseに精通したフルスタックエンジニアです。\n以下の要件で個人用タスク管理アプリを生成してください。\n\n技術: Next.js 14 (App Router) / TypeScript / Supabase Auth + Postgres / Tailwind CSS\n機能:\n- Google認証でログイン\n- ログイン後にタスク一覧（追加・完了・削除）\n- 完了済みタスクは別タブで表示\n受け入れ条件:\n- 認証なしでアクセスしたらログインページへリダイレクト\n- タスクのCRUDはRLSで自分のレコードのみ\n```\n\nこのレベルまで書けば、Bolt.new は1ショットで動くスケルトンを返します。\n\n### ステップ3: プレビューで動作確認しながら追加指示（10分）\n生成直後はプレビューが立ち上がるので、まず認証・CRUD・リダイレクトを手動で叩きます。動かない箇所は AI チャットに「○○の画面で△△を押すとXXエラー、修正して」と具体的に伝えるのがコツです。\n\n修正指示の良い例:\n- 「ログアウトボタンをヘッダー右上に追加し、押下後に / にリダイレクト」\n- 「タスク追加フォームに最小1文字のバリデーションを入れ、空送信時はトーストでエラー表示」\n\n逆に「全体的にきれいにして」のような抽象指示はリファクタが暴走しやすいので避けます。\n\n### ステップ4: 環境変数とSupabase連携（5分）\nBolt.new はプロジェクト直下に `.env.local` のテンプレを作るので、Supabase ダッシュボードから取得した `NEXT_PUBLIC_SUPABASE_URL` と `NEXT_PUBLIC_SUPABASE_ANON_KEY` を貼ります。RLSポリシーは AI が自動生成しますが、念のため Supabase の SQL Editor で `select * from policies` 相当のクエリを叩いて、自分の user_id 縛りになっているか目視確認します。\n\n### ステップ5: Vercelへデプロイ（5分）\n右上の「Deploy」ボタンから Vercel 連携を選択。GitHub リポジトリ作成 → Vercel プロジェクト作成 → 環境変数を Vercel 側にもコピーまでが流れ作業です。デプロイ完了後、本番URLでもう一度ログイン〜タスク追加までスモークテストして終了。\n\n## 失敗しないための3つの注意点\n1. **デザイン指示は最後にまとめて**: 機能が固まる前にUI調整を頼むと、機能修正のたびにデザインがブレます。\n2. **データベーススキーマは1回確定させる**: 途中で `tasks` テーブルにカラム追加するとマイグレーションが二重発行されることがあるので、初期プロンプトで列を出し切ります。\n3. **Bolt.new の課金枠に注意**: 無料枠のメッセージ数は意外とすぐ消費するので、関係ない雑談はせず、本番作業に集中します。\n\n## よくある質問（FAQ）\n### Q1: 30分で本当に公開URLまで行けますか？\nA1: 個人用の小規模アプリ（CRUD + 認証 + 1〜2画面）なら可能です。マルチテナント対応や複雑な権限制御を入れる場合は1〜2時間見ておくのが安全です。\n\n### Q2: 生成されたコードを後から自分のローカルで触れますか？\nA2: はい、Bolt.new は GitHub 連携で自分のリポジトリへエクスポートできるので、以後はローカルの VS Code や Cursor で続きを書けます。\n\n### Q3: TypeScript が苦手でも使えますか？\nA3: 使えますが、エラー文の意味が分からないと直しづらいので、最低限「型エラーの読み方」は別途学習しておくと詰まりにくいです。\n\n## まとめ\n中級者向けに Bolt.new で30分アプリを作る実践フローを示しました。プロンプト設計と段階的な指示が肝で、AI に任せきりにせず「動作確認→具体的な修正指示」を回すことが品質を担保するコツです。次は同じアプローチで Stripe 課金や PWA 化など、機能追加に挑戦してみてください。\n",
+  "meta_description": "Bolt.new で要件定義からデプロイまで30分で進める手順を中級者向けに解説。プロンプト設計・段階的な指示・デプロイ前チェックの3点で品質と速度を両立します。",
+  "tags": [
+    "Bolt.new",
+    "フルスタック",
+    "30分",
+    "Next.js",
+    "Supabase"
+  ],
+  "slug": "bolt-new-fullstack-30min-guide-2026",
+  "faq": [
+    {
+      "question": "Q1: 30分で本当に公開URLまで行けますか？",
+      "answer": "個人用の小規模アプリ（CRUD + 認証 + 1〜2画面）なら可能です。マルチテナント対応や複雑な権限制御を入れる場合は1〜2時間見ておくのが安全です。"
+    },
+    {
+      "question": "Q2: 生成されたコードを後から自分のローカルで触れますか？",
+      "answer": "はい、Bolt.new は GitHub 連携で自分のリポジトリへエクスポートできるので、以後はローカルの VS Code や Cursor で続きを書けます。"
+    },
+    {
+      "question": "Q3: TypeScript が苦手でも使えますか？",
+      "answer": "使えますが、エラー文の意味が分からないと直しづらいので、最低限「型エラーの読み方」は別途学習しておくと詰まりにくいです。"
+    }
+  ],
+  "hero_emoji": "📝",
+  "hero_gradient": "135deg",
+  "keyword": "Bolt.new",
+  "category": "Bolt.new 実践",
+  "generated_at": "2026-04-29T08:11:34.844711",
+  "seo_score": 85,
+  "jsonld": [
+    "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BlogPosting\",\n  \"headline\": \"Bolt.new でフルスタックWebアプリを30分で作る実践ガイド2026\",\n  \"description\": \"Bolt.new で要件定義からデプロイまで30分で進める手順を中級者向けに解説。プロンプト設計・段階的な指示・デプロイ前チェックの3点で品質と速度を両立します。\",\n  \"url\": \"https://musclelove-777.github.io/bolt-new-guide/articles/bolt-new-fullstack-30min-guide-2026.html\",\n  \"datePublished\": \"2026-04-29T08:11:34.844711\",\n  \"dateModified\": \"2026-04-29T08:11:34.844711\",\n  \"author\": {\n    \"@type\": \"Organization\",\n    \"name\": \"wave35d-ai-articles\"\n  },\n  \"keywords\": \"Bolt.new, フルスタック, 30分, Next.js, Supabase\",\n  \"articleSection\": \"Bolt.new 実践\",\n  \"inLanguage\": \"ja\"\n}\n</script>",
+    "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Q1: 30分で本当に公開URLまで行けますか？\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"個人用の小規模アプリ（CRUD + 認証 + 1〜2画面）なら可能です。マルチテナント対応や複雑な権限制御を入れる場合は1〜2時間見ておくのが安全です。\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Q2: 生成されたコードを後から自分のローカルで触れますか？\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"はい、Bolt.new は GitHub 連携で自分のリポジトリへエクスポートできるので、以後はローカルの VS Code や Cursor で続きを書けます。\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Q3: TypeScript が苦手でも使えますか？\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"使えますが、エラー文の意味が分からないと直しづらいので、最低限「型エラーの読み方」は別途学習しておくと詰まりにくいです。\"\n      }\n    }\n  ]\n}\n</script>",
+    "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"ホーム\",\n      \"item\": \"https://musclelove-777.github.io/bolt-new-guide\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Bolt.new 実践\",\n      \"item\": \"https://musclelove-777.github.io/bolt-new-guide/category/Bolt.new 実践\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Bolt.new でフルスタックWebアプリを30分で作る実践ガイド2026\"\n    }\n  ]\n}\n</script>"
+  ],
+  "has_affiliate": false,
+  "affiliate_count": 0
+}
