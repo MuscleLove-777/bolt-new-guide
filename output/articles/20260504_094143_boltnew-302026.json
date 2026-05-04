@@ -1,0 +1,26 @@
+{
+  "title": "Bolt.new 使い方｜30分でアプリ生成する完全ガイド【2026年版】",
+  "content": "# Bolt.new 使い方｜30分でアプリ生成する完全ガイド【2026年版】\n\n## この記事でわかること\n\n- **Bolt.newの基本操作**：プロンプト1つでフルスタックアプリを自動生成できる仕組み\n- **実装レベルの使い方**：React×TypeScript×Supabaseで実際のアプリ開発まで進める手順\n- **他ツールとの使い分け**：Lovable・Replit・Cursor・v0との違いを理解して最適なツール選択ができる\n\n---\n\n## 結論：Bolt.newは「最速でMVP（最小限の実行可能製品）を作りたい人」向けのNo.1選択肢\n\nBolt.newはStackBlitzが提供する**AIコード生成プラットフォーム**で、テキストプロンプトだけで本番レベルのフルスタックアプリを30分で作成できます。コーディング知識がなくても、自然言語で「〇〇な機能を持つアプリを作って」と指示するだけで、デモ環境で動作可能なアプリが完成します。\n\n特に**ノーコードでスタートアップのMVPを検証したい**、**デザイナーがコード知識なしにプロトタイプを作りたい**、**学習用に動作するアプリサンプルが欲しい**といった用途に最適です。\n\n---\n\n## Bolt.newの基本的な使い方\n\n### 1. Bolt.newへのアクセス と初期セットアップ\n\nBolt.newは**ブラウザだけで利用可能**で、インストール不要です。\n\n**操作手順：**\n\n1. [https://bolt.new](https://bolt.new) にアクセス\n2. ログイン画面で「Create Account」または「Sign in」を選択（Google/GitHub認証対応）\n3. メールアドレスまたはGoogleアカウントで登録\n4. ダッシュボードに進み「Create New Project」をクリック\n5. プロンプト入力エリアが表示される（チャット型のUI）\n\n**無料プラン vs 有料プラン：**\n\n- 無料プラン：月5個のプロジェクト作成、基本的な生成機能\n- Pro プラン（月$20）：無制限プロジェクト、優先生成、APIアクセス\n\n非エンジニア向けであれば、まずは無料プランで試験的に始めるのをお勧めします。\n\n### 2. プロンプトエンジニアリング：的確な指示でアプリを生成\n\nBolt.newで高品質なアプリを生成するには、**プロンプトの書き方が重要**です。曖昧な指示では希望通りのアプリが生成されません。\n\n**プロンプト作成のベストプラクティス：**\n\n- **目的を明確に**：「〇〇を管理するアプリ」ではなく「ユーザーが日々の支出を記録・分析できるアプリ」\n- **具体的な機能一覧**：ボタン、フォーム、グラフなど画面要素を明記\n- **データベース要件**：ユーザー認証が必要か、何を保存するのか\n- **デザイン指定**：「モダンで暗いテーマ」「スマートフォンメインの設計」など\n- **技術スタック指定**：「Supabaseで認証」「Stripe決済対応」など\n\n### 3. リアルタイムビルド：プロンプトを送信してアプリが自動生成\n\n1. プロンプト入力欄に詳細な要件を入力\n2. 「Generate」または「Send」をクリック\n3. **リアルタイムで右側プレビューが更新**（HTML/CSS/JavaScriptが自動生成）\n4. 表示されたアプリを試用し、不足機能があれば追加プロンプトで改善\n5. 満足したら「Export」からコード出力\n\n**重要：Bolt.newはコード生成であり、自動デプロイではありません。** 生成されたコードはZIPダウンロードまたはGitHub連携で自分のリポジトリに落とし込み、Vercel/Netlifyなど好みのホスティングサービスにデプロイします。\n\n### 4. コードの確認と編集\n\n生成されたコードは以下の構成：\n\n- **`package.json`**：依存関係（React, TypeScript, Tailwind CSSなど）\n- **`src/App.jsx` または `src/App.tsx`**：メインコンポーネント\n- **`src/components/`**：UI パーツの再利用可能なコンポーネント\n- **`.env.example`**：Supabase キーなど環境変数のテンプレート\n\nエディタ機能も搭載されているため、簡単な修正（色の変更、テキスト編集）はBolt.new内で完了できます。複雑な修正が必要な場合は、コードをダウンロードしてローカルのVS Codeで編集します。\n\n### 5. デプロイと公開\n\n**ステップ：**\n\n1. ローカルで `npm install` → `npm run dev` で動作確認\n2. Vercel/Netlify連携またはGitHub ActionsでCD（継続的デプロイ）を設定\n3. カスタムドメインを割り当て（GoDaddy/Cloudflareなど）\n4. Supabaseバックエンド（データベース/認証）を本番環境に切り替え\n5. HTTPS対応を確認して公開\n\n{{internal_link:Supabase バックエンド構築ガイド}}\n\n## おすすめサービス・ツール\n\nこの記事で紹介した内容を実践するために、以下のサービスがおすすめです。\n\n- **[Amazon](https://www.amazon.co.jp?tag=musclelove07-22)** - AmazonでAI関連書籍を探す\n- **[楽天ブックス](https://www.rakuten.co.jp)** - 楽天でAI関連書籍を探す\n\n*※ 上記リンクからご利用いただくと、サイト運営の支援になります。*\n",
+  "hero_emoji": "📝",
+  "hero_gradient": "135deg",
+  "image_search_query": "",
+  "meta_description": "Bolt.new 使い方｜30分でアプリ生成する完全ガイド【2026年版】\n\n この記事でわかること\n\n- Bolt.newの基本操作：プロンプト1つでフルスタックアプリを自動生成できる仕組み\n- 実装レベルの使い方：React×Type",
+  "tags": [
+    "自動生成",
+    "ブログ",
+    "記事",
+    "SEO",
+    "最新"
+  ],
+  "slug": "boltnew-302026",
+  "keyword": "Bolt.new 使い方",
+  "category": "Bolt.new 使い方",
+  "generated_at": "2026-05-04T09:41:43.269510",
+  "seo_score": 77,
+  "jsonld": [
+    "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BlogPosting\",\n  \"headline\": \"Bolt.new 使い方｜30分でアプリ生成する完全ガイド【2026年版】\",\n  \"description\": \"Bolt.new 使い方｜30分でアプリ生成する完全ガイド【2026年版】\\n\\n この記事でわかること\\n\\n- Bolt.newの基本操作：プロンプト1つでフルスタックアプリを自動生成できる仕組み\\n- 実装レベルの使い方：React×Type\",\n  \"url\": \"https://musclelove-777.github.io/bolt-new-guide/articles/boltnew-302026.html\",\n  \"datePublished\": \"2026-05-04T09:41:43.269510\",\n  \"dateModified\": \"2026-05-04T09:41:43.269510\",\n  \"author\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Bolt.new AIアプリビルダー完全ガイド\",\n    \"url\": \"https://musclelove-777.github.io/bolt-new-guide\"\n  },\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Bolt.new AIアプリビルダー完全ガイド\",\n    \"url\": \"https://musclelove-777.github.io/bolt-new-guide\"\n  },\n  \"mainEntityOfPage\": {\n    \"@type\": \"WebPage\",\n    \"@id\": \"https://musclelove-777.github.io/bolt-new-guide/articles/boltnew-302026.html\"\n  },\n  \"keywords\": \"自動生成, ブログ, 記事, SEO, 最新\",\n  \"articleSection\": \"Bolt.new 使い方\",\n  \"inLanguage\": \"ja\"\n}\n</script>",
+    "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"ホーム\",\n      \"item\": \"https://musclelove-777.github.io/bolt-new-guide\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Bolt.new 使い方\",\n      \"item\": \"https://musclelove-777.github.io/bolt-new-guide/category/Bolt.new 使い方\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 3,\n      \"name\": \"Bolt.new 使い方｜30分でアプリ生成する完全ガイド【2026年版】\"\n    }\n  ]\n}\n</script>"
+  ],
+  "has_affiliate": true,
+  "affiliate_count": 2
+}
