@@ -173,7 +173,8 @@
     {
       "keyword": "Bolt.new ビジネス活用 事例集",
       "priority": "high",
-      "status": "pending"
+      "status": "done",
+      "done_at": "2026-05-19T09:47:29.580885"
     },
     {
       "keyword": "Bolt.new SaaS アプリ 作成例",
